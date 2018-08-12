@@ -46,7 +46,7 @@ public class MalletNerDemo {
 		String trainFile = nerTrainFileBase + "_" + languageCode;
 		CustomDataHandler.writeTrainData(trainFile, trainDataLines);
 				
-		//Train
+		//Train - NOTE: we used the tokenizer before to generate tokens and now we assume that we can simply split at whitespace
 		NerTrainer trainer = new MalletNerTrainer(nerTrainerPropertiesFile, nerTrainFileBase, nerModelFileBase, languageCode);
 		trainer.train();
 		

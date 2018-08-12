@@ -74,7 +74,7 @@ public class OpenNlpDataHandler implements CompactDataHandler{
 			if (filterIntent != null && !filterIntent.isEmpty() && !cde.intent.equals(filterIntent)){
 				continue;
 			}else{
-				trainDataLines.add(cde.intent + " " + cde.sentence);
+				trainDataLines.add(cde.intent + " " + tokenizer.normalizeSentence(cde.sentence));
 			}
 		}
 		return trainDataLines;

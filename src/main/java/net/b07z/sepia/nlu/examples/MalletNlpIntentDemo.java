@@ -5,23 +5,23 @@ import java.util.List;
 
 import net.b07z.sepia.nlu.classifiers.IntentClassifier;
 import net.b07z.sepia.nlu.classifiers.IntentEntry;
-import net.b07z.sepia.nlu.classifiers.OpenNlpIntentClassifier;
+import net.b07z.sepia.nlu.classifiers.MalletIntentClassifier;
 import net.b07z.sepia.nlu.tokenizers.RealLifeChatTokenizer;
 import net.b07z.sepia.nlu.tokenizers.Tokenizer;
 import net.b07z.sepia.nlu.tools.CompactDataEntry;
 import net.b07z.sepia.nlu.tools.CompactDataHandler;
 import net.b07z.sepia.nlu.tools.CustomDataHandler;
-import net.b07z.sepia.nlu.tools.OpenNlpDataHandler;
+import net.b07z.sepia.nlu.tools.MalletDataHandler;
 import net.b07z.sepia.nlu.trainers.IntentTrainer;
-import net.b07z.sepia.nlu.trainers.OpenNlpIntentTrainer;
+import net.b07z.sepia.nlu.trainers.MalletIntentTrainer;
 
 /**
- * Maximum-Entropy (ME) intent classifier with OpenNLP. 
+ * Maximum-Entropy (ME) intent classifier with Mallet. 
  * 
  * @author Florian Quirin
  *
  */
-public class OpenNlpIntentDemo {
+public class MalletNlpIntentDemo {
 
 	public static void main(String[] args) throws Exception {
 		long tic = System.currentTimeMillis();
@@ -30,8 +30,8 @@ public class OpenNlpIntentDemo {
 		String compactTrainDataFile = "data/intentCompactTrain.txt";
 		String compactTestDataFile = "data/intentCompactTest.txt";
 
-		String modelFileBase = "data/opennlp_model_intents";
-		String trainFileBase = "data/opennlp_train_intents";
+		String modelFileBase = "data/mallet_model_intents";
+		String trainFileBase = "data/mallet_train_intents";
 		
 		String languageCode = "en";
 		
@@ -44,14 +44,14 @@ public class OpenNlpIntentDemo {
 		//Tokenizer tokenizer = new RealLifeChatTokenizer();
 		
 		//Get train data from compact format
-		CompactDataHandler cdh = new OpenNlpDataHandler();
+		CompactDataHandler cdh = new MalletDataHandler();
 		String trainFile = trainFileBase + "_" + languageCode;
 		//Convert compact format to OpenNLP format and write file
 		List<String> trainDataLines = cdh.importTrainDataIntent(trainData, tokenizer, null);
 		CustomDataHandler.writeTrainData(trainFile, trainDataLines);
 		
 		//Start training
-		IntentTrainer trainer = new OpenNlpIntentTrainer(null, trainFileBase, modelFileBase, languageCode);
+		IntentTrainer trainer = new MalletIntentTrainer(null, trainFileBase, modelFileBase, languageCode);
 		trainer.train();
 						
 		//Test
@@ -59,7 +59,7 @@ public class OpenNlpIntentDemo {
 		int bad = 0;
 		double cThresh = 0.33;
 		double certaintySumBest = 0.0;
-		IntentClassifier ic = new OpenNlpIntentClassifier(modelFileBase, tokenizer, languageCode);
+		IntentClassifier ic = new MalletIntentClassifier(modelFileBase, tokenizer, languageCode);
 		for (CompactDataEntry cde : testData){
 			String sentence = cde.getSentence();
 			Collection<IntentEntry> intentRes = ic.analyzeSentence(sentence);

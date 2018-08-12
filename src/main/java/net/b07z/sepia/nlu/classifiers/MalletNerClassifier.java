@@ -61,8 +61,8 @@ public class MalletNerClassifier implements NerClassifier{
 		List<String> tokens = tokenizer.getTokens(sentence);
 		
 		//Create instance - TODO: there has got to be an easier way ...
-		String data = String.join("\n", tokens);		//this breaks it: System.getProperty("line.separator")
-		Instance carrier = new Instance(data, null, "linegroup0", null);
+		String data = String.join("\n", tokens);	//if you want to use System.getProperty("line.separator") check SentenceToFeatureVectorSequencePipe
+		Instance carrier = new Instance(data, null, "userinputgroup0", null);
 		
 		//Get pipe and add instance
 		Pipe p = this.crfModel.getInputPipe();

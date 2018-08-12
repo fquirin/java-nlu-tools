@@ -59,6 +59,20 @@ public class MalletDataHandler implements CompactDataHandler {
 	@Override
 	public List<String> importTrainDataIntent(Collection<CompactDataEntry> compactData, Tokenizer tokenizer,
 			String filterIntent) {
-		throw new RuntimeException("Not yet implemented");
+		List<String> trainDataLines = new ArrayList<>();
+		int n = 0;
+		for (CompactDataEntry cde : compactData){
+			n++;
+			if (cde.intent == null){
+				System.err.println("Skipped sentence - Missing intent in line " + n + ": " + cde.sentence);
+				continue;
+			}
+			if (filterIntent != null && !filterIntent.isEmpty() && !cde.intent.equals(filterIntent)){
+				continue;
+			}else{
+				trainDataLines.add(cde.intent + " " + tokenizer.normalizeSentence(cde.sentence));
+			}
+		}
+		return trainDataLines;
 	}
 }

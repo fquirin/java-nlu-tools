@@ -14,13 +14,13 @@ import java.util.regex.Pattern;
 import cc.mallet.fst.CRF;
 import cc.mallet.fst.CRFTrainerByLabelLikelihood;
 import cc.mallet.fst.CRFTrainerByThreadedLabelLikelihood;
-import cc.mallet.fst.SimpleTagger;
 import cc.mallet.fst.Transducer;
 import cc.mallet.pipe.Pipe;
 import cc.mallet.pipe.iterator.LineGroupIterator;
 import cc.mallet.types.Alphabet;
 import cc.mallet.types.InstanceList;
 import cc.mallet.util.MalletLogger;
+import net.b07z.sepia.nlu.mallet.SentenceToFeatureVectorSequencePipe;
 import net.b07z.sepia.nlu.tools.CustomDataHandler;
 
 /**
@@ -76,7 +76,11 @@ public class MalletNerTrainer implements NerTrainer {
 		long tic = System.currentTimeMillis();
 		InstanceList trainingData = null;
 		
-		Pipe p = new SimpleTagger.SimpleTaggerSentence2FeatureVectorSequence();
+		//Pipe p = new SimpleTagger.SimpleTaggerSentence2FeatureVectorSequence();
+		Pipe p = new SentenceToFeatureVectorSequencePipe(featureInduction);
+		/*
+		 Check the intent trainer for serial pipe examples. I bet we could streamline this here ... 
+		 */
 		p.getTargetAlphabet().lookupIndex(defaultLabel);
 		
 		p.setTargetProcessing(true);
