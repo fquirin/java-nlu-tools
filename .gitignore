@@ -11,6 +11,12 @@ buildNumber.properties
 # Avoid ignoring Maven wrapper jar file (.jar files are usually ignored)
 !/.mvn/wrapper/maven-wrapper.jar
 
+# Eclipse
+.classpath
+.project
+.settings/
+
 # Ignore output files of data import and model training
 data/opennlp_*
 data/mallet_*
+data/corenlp_*

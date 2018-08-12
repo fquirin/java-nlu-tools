@@ -1,0 +1,16 @@
+Way from Rio to Tokio --- O O LOC_START O LOC_END
+Show me the way from Essen to Bochum --- O O O O O LOC_START O LOC_END
+Let's go to Amsterdam --- O O O LOC_END
+Let's fly to Brasil --- O O O LOC_END
+Let's drive from Potsdam to Kopenhagen --- O O O LOC_START O LOC_END
+I'm thinking about a trip to Las Vegas --- O O O O O O LOC_END LOC_END
+I'm planning to drive from Barcelona to Granada --- O O O O O LOC_START O LOC_END
+I'm looking for flights from SFO to ORD --- O O O O O LOC_START O LOC_END
+I want to walk from Santiago de Compostela to Porto --- O O O O O LOC_START LOC_START LOC_START O LOC_END
+I want to visit Chicago --- O O O O LOC_END
+I want to go to the Statue of Liberty --- O O O O O O LOC_END LOC_END LOC_END
+I want to go to Santiago de Compostela --- O O O O O LOC_END LOC_END LOC_END
+I wanna visit Vienna --- O O O LOC_END
+I need to go to Westminster Abbey --- O O O O O LOC_END LOC_END
+I need a plane from Düsseldorf to Machester --- O O O O O LOC_START O LOC_END
+Check some flights to Buenos Aires --- O O O O LOC_END LOC_END

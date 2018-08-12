@@ -37,6 +37,7 @@ public class MalletNerTrainer implements NerTrainer {
 	private String modelFile;
 	private Reader trainingFile;
 	private CRF crfModel;
+	private String languageCode;
 	
 	private String defaultLabel = "O";			//Label for initial context and uninteresting tokens
 	private double gaussianVariance = 10.0;		//The gaussian prior variance used for training
@@ -52,13 +53,16 @@ public class MalletNerTrainer implements NerTrainer {
 	/**
 	 * Setup NER classifier with properties file and training data.
 	 * @param propertiesFile
-	 * @param trainDataFile
-	 * @param modelOutputFile
+	 * @param trainDataFileBase
+	 * @param modelOutputFileBase
+	 * @param languageCode
 	 * @throws Exception 
 	 */
-	public MalletNerTrainer(String propertiesFile, String trainDataFile, String modelOutputFile) throws Exception{
-		modelFile = modelOutputFile;
-		trainingFile = new FileReader(new File(trainDataFile));
+	public MalletNerTrainer(String propertiesFile, String trainDataFileBase, String modelOutputFileBase, String languageCode) throws Exception{
+		this.languageCode = languageCode;
+		this.modelFile = modelOutputFileBase + "_" + this.languageCode;
+		String trainDataFile = trainDataFileBase + "_" + this.languageCode;
+		this.trainingFile = new FileReader(new File(trainDataFile));
 		
 		if (propertiesFile != null && !propertiesFile.isEmpty()){
 			props = CustomDataHandler.loadProperties(propertiesFile);

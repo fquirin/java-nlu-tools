@@ -32,17 +32,21 @@ public class MalletNerClassifier implements NerClassifier{
 	
 	private CRF crfModel;
 	private Tokenizer tokenizer;
+	private String languageCode;
 	
 	private int nBest = 3; 				//How many answers to output
 	private int cacheSize = 100000; 	//How much state information to memoize in n-best decoding
 	
 	/**
 	 * Create NER classifier with model and tokenizer.
-	 * @param model
+	 * @param modelFileBase
 	 * @param tokenizer
+	 * @param languageCode
 	 */
-	public MalletNerClassifier(String modelFile, Tokenizer tokenizer) throws Exception {
+	public MalletNerClassifier(String modelFileBase, Tokenizer tokenizer, String languageCode) throws Exception {
+		this.languageCode = languageCode;
 		//load model
+		String modelFile = modelFileBase + "_" + this.languageCode;
 		try (ObjectInputStream s = new ObjectInputStream(new FileInputStream(modelFile))){
 			this.crfModel = (CRF) s.readObject();
 		}catch(Exception e){

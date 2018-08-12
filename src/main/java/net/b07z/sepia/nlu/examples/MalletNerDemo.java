@@ -29,8 +29,10 @@ public class MalletNerDemo {
 		String nerCompactTrainDataFile = "data/nerCompactTrain.txt";
 		String nerCompactTestDataFile = "data/nerCompactTest.txt";
 		String nerTrainerPropertiesFile = null; //"data/malletner.properties";
-		String nerModelFile = "data/mallet_model_ner_en";
-		String nerTrainFile = "data/mallet_train_ner_en";
+		String nerModelFileBase = "data/mallet_model_ner";
+		String nerTrainFileBase = "data/mallet_train_ner";
+		
+		String languageCode = "en";
 		
 		//Create training data from compact custom format
 		Collection<CompactDataEntry> trainData = CustomDataHandler.importCompactData(nerCompactTrainDataFile);
@@ -41,14 +43,15 @@ public class MalletNerDemo {
 		//Tokenizer tokenizer = new RealLifeChatTokenizer();
 		CompactDataHandler cdh = new MalletDataHandler();
 		List<String> trainDataLines = cdh.importTrainDataNer(trainData, tokenizer, false, null);
-		CustomDataHandler.writeTrainData(nerTrainFile, trainDataLines);
+		String trainFile = nerTrainFileBase + "_" + languageCode;
+		CustomDataHandler.writeTrainData(trainFile, trainDataLines);
 				
 		//Train
-		NerTrainer trainer = new MalletNerTrainer(nerTrainerPropertiesFile, nerTrainFile, nerModelFile);
+		NerTrainer trainer = new MalletNerTrainer(nerTrainerPropertiesFile, nerTrainFileBase, nerModelFileBase, languageCode);
 		trainer.train();
 		
 		//Test
-		NerClassifier ner = new MalletNerClassifier(nerModelFile, tokenizer);
+		NerClassifier ner = new MalletNerClassifier(nerModelFileBase, tokenizer, languageCode);
 		int good = 0;
 		int bad = 0;
 		for (CompactDataEntry cde : testData){
@@ -71,14 +74,6 @@ public class MalletNerDemo {
 		}
 		System.out.println("Good: " + good + ", bad: " + bad + ", prec.: " + ((double)good/(good+bad)));
 		System.out.println("Took: " + (System.currentTimeMillis() - tic) + "ms");
-		/*
-		System.out.println(ner.analyzeSentence("Show me the way from Essen to Bochum"));
-		System.out.println(ner.analyzeSentence("Show me the way from LA to SF"));
-		System.out.println(ner.analyzeSentence("I want to go to the Statue of Liberty"));
-		System.out.println(ner.getEntities("I need to go to Westminster Abbey"));
-		System.out.println(ner.getEntities("I'm looking for flights from SFO to ORD"));
-		System.out.println(ner.getEntities("I want to visit Chicago"));
-		*/
 	}
 
 }

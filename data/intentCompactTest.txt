@@ -1,0 +1,17 @@
+Show me the way from Dover to Eastborne --- # --- DIRECTIONS
+Need a plane from FRA to DUS --- # --- DIRECTIONS
+I'd like to visit New York --- # --- DIRECTIONS
+What's the weather like? --- # --- WEATHER
+How is the weather in LA? --- # --- WEATHER
+Give me the weather forecast? --- # --- WEATHER
+Will it snow? --- # --- WEATHER 
+Alarm for 8 o'clock --- # --- ALARM
+Set an alarm to ten o'clock --- # --- ALARM
+Wake me up at in six hours --- # --- ALARM
+Set a timer for six minutes --- # --- TIMER
+Timer for three hours --- # --- TIMER
+Show me news --- # --- NEWS
+Show me science news --- # --- NEWS
+What is going on? --- # --- NEWS
+How are you? --- # --- OTHER
+Can you hear me? --- # --- OTHER

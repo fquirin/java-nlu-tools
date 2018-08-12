@@ -1,0 +1,35 @@
+Way from Paris to Marseille please --- O O LOC_START O LOC_END O
+Way from NY to SF --- O O LOC_START O LOC_END
+Way from London to Liverpool --- O O LOC_START O LOC_END
+Way from LA to SF please --- O O LOC_START O LOC_END O
+Way from LA to SF --- O O LOC_START O LOC_END
+Way from DUS to LAX --- O O LOC_START O LOC_END
+Way from C to D --- O O LOC_START O LOC_END
+Way from Bruxelles to Bonn --- O O LOC_START O LOC_END
+Way from BB to AA please --- O O LOC_START O LOC_END O
+Way from B to A please --- O O LOC_START O LOC_END O
+Way from B to A --- O O LOC_START O LOC_END
+Way from A to B --- O O LOC_START O LOC_END
+The way from New York to Jersey City --- O O O LOC_START LOC_START O LOC_END LOC_END
+The way from Los Angeles to San Diego --- O O O LOC_START LOC_START O LOC_END LOC_END
+The way from Las Vegas to Jersey City --- O O O LOC_START LOC_START O LOC_END LOC_END
+The way from Jersey City to New York --- O O O LOC_START LOC_START O LOC_END LOC_END
+Show me the way from Frankfurt to Nürnberg --- O O O O O LOC_START O LOC_END
+Show me the way from Berlin to Munich --- O O O O O LOC_START O LOC_END
+Show me the road to Rio de Janeiro --- O O O O O LOC_END LOC_END LOC_END
+Need to go from SF to NY --- O O O O LOC_START O LOC_END
+Need to go from NY to SF --- O O O O LOC_START O LOC_END
+Need a train from SF to LA please --- O O O O LOC_START O LOC_END O
+Need a train from SF to LA please --- O O O O LOC_START O LOC_END O
+Need a plane from LAX to JFK --- O O O O LOC_START O LOC_END
+Need a plane from DUS to FRA --- O O O O LOC_START O LOC_END
+I'd like to visit the US --- O O O O O LOC_END
+I'd like to visit the Azores --- O O O O O LOC_END
+I want to visit the Statue of Liberty --- O O O O O LOC_END LOC_END LOC_END
+I want to visit the Louvre in Paris --- O O O O O LOC_END LOC_END LOC_END
+I wanna go to Washington --- O O O O LOC_END
+I wanna go to California --- O O O O LOC_END
+I need to get from SF to NY --- O O O O O LOC_START O LOC_END
+I need to get from Rome to Venice --- O O O O O LOC_START O LOC_END
+Do you know the way from SF to LA? --- O O O O O O LOC_START O LOC_END
+Do you know the way from SF to LA? --- O O O O O O LOC_START O LOC_END

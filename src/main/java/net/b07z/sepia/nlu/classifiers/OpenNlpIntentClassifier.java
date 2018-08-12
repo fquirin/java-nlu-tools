@@ -2,14 +2,10 @@ package net.b07z.sepia.nlu.classifiers;
 
 import java.io.FileInputStream;
 import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Set;
-import java.util.SortedMap;
-
 import net.b07z.sepia.nlu.tokenizers.Tokenizer;
 import opennlp.tools.doccat.DoccatModel;
 import opennlp.tools.doccat.DocumentCategorizerME;
