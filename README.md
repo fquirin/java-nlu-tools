@@ -35,8 +35,9 @@ trainer.train();
 To test your model load it in a new classifier and call it like this:
 ```
 IntentClassifier ic = new OpenNlpIntentClassifier(modelFileBase, tokenizer, languageCode);
-Collection<IntentEntry> intentRes = ic.analyzeSentence(sentence);
-String bestIntent = bestRes.getIntent();
-double bestCertainty = bestRes.getCertainty();
+Collection<IntentEntry> intentResults = ic.analyzeSentence(sentence);
+IntentEntry bestResult = IntentEntry.getBestIntent(intentResults);
+String bestIntent = bestResult.getIntent();
+double bestCertainty = bestResult.getCertainty();
 ```
 Check out the [examples](https://github.com/fquirin/java-nlu-tools/tree/master/src/main/java/net/b07z/sepia/nlu/examples) for each toolkit to get a complete overview of the export-train-test procedure.  
